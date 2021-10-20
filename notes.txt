@@ -1,0 +1,40 @@
+http://localhost:8006/api/invoices?pagination=false
+http://localhost:8006/api/customers?pagination=true&itemsPerPage=10
+
+Si on a dans api_platform:
+items_per_page_parameter_name: "count"
+
+http://localhost:8006/api/customers?pagination=true&count=10
+
+Les orders (exemple) : 
+
+http://localhost:8006/api/customers?firstname=Jacques&lastname=Daselorme
+http://localhost:8006/api/invoices?order[sendAt]=desc
+http://localhost:8006/api/customers?firstname=paul&order[lastname]=asc
+
+On selectionne les opérations que l'on veut pouvoir rendre disponible. 
+On peut également changer les noms de chemin avec l'option path.
+
+ *  collectionOperations={"GET"={"path"="/clients"}, "POST"}, 
+ *  itemOperations={"GET"={"path"="/clients/{id}"}, "PUT", "DELETE"},
+
+Sous-ressources
+Exemple // les factures d'un seul customer via l'url
+
+http://localhost:8006/api/customers/77/invoices
+/**
+ * @ORM\OneToMany(targetEntity=Invoice::class, mappedBy="customer", cascade={"persist"})
+ * @Groups({"customers_read"})
+ * @ApiSubresource
+ */
+private $invoices;
+
+
+http://localhost:8006/api/invoices/234/increment
+
+
+
+
+
+
+
