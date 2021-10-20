@@ -15,6 +15,7 @@
         "doctrine/orm": "^2.9",
         "fakerphp/faker": "^1.16",
         "jms/serializer-bundle": "^3.10",
+        "lexik/jwt-authentication-bundle": "^2.13",
         "nelmio/cors-bundle": "^2.1",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^6.1",

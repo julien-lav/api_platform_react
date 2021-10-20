@@ -33,6 +33,16 @@ private $invoices;
 http://localhost:8006/api/invoices/234/increment
 
 
+http://localhost:8006/api/login_check
+
+
+Ajouter dans auth bearer token. Puis renseigner le token délivré par JWT. 
+Pour accéder de nouveau aux ressources.
+
+
+
+
+
 
 
 
