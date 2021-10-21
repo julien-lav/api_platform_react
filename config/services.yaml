@@ -31,5 +31,15 @@ services:
     App\Serializer\PatchedDateTimeNormalizer:
         public: true
         tags: ["serializer.normalizer"]
+
+    App\Token\JWTCreatedSubscriber:
+        public: true
+        tags:
+            - {
+                name: kernel.event_listener, 
+                event: lexik_jwt_authentication.on_jwt_created,
+                method: updateJWTData
+            }
+
         
     

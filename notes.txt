@@ -40,6 +40,13 @@ Ajouter dans auth bearer token. Puis renseigner le token délivré par JWT.
 Pour accéder de nouveau aux ressources.
 
 
+Kernel.request
+=>
+Kernel.view
+=>
+Kernel.response
+
+
 
 
 
