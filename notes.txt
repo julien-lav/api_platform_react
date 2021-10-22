@@ -48,7 +48,19 @@ Kernel.response
 
 
 
+#####
+#####
+#####
 
+composer require encore
+npm install
+
+webpack.config.js
+package.json
+
+npm run build
+
+npm run dev-server
 
 
 
