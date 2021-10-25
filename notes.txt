@@ -58,9 +58,16 @@ npm install
 webpack.config.js
 package.json
 
-npm run build
+npm run build /* optimisations prod */
+npm run dev
 
-npm run dev-server
+npm run dev-server 
+/* Donne des nom avec une url
+   Ajoute un petit serveur 
+ */
+
+npm install @babel/preset-react@^7.0.0 --save-dev
+npm install react@16.8.6 react-dom@16.8.6 react-router-dom@5.0.0 axios@0.18.0
 
 
 
