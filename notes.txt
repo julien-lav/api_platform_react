@@ -29,24 +29,18 @@ http://localhost:8006/api/customers/77/invoices
  */
 private $invoices;
 
-
 http://localhost:8006/api/invoices/234/increment
-
 
 http://localhost:8006/api/login_check
 
-
 Ajouter dans auth bearer token. Puis renseigner le token délivré par JWT. 
 Pour accéder de nouveau aux ressources.
-
 
 Kernel.request
 =>
 Kernel.view
 =>
 Kernel.response
-
-
 
 #####
 #####
@@ -62,8 +56,9 @@ npm run build /* optimisations prod */
 npm run dev
 
 npm run dev-server 
-/* Donne des nom avec une url
-   Ajoute un petit serveur 
+/* 
+    Donne des nom avec une url
+    Ajoute un petit serveur 
  */
 
 npm install @babel/preset-react@^7.0.0 --save-dev

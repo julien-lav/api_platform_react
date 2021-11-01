@@ -2,6 +2,11 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import Navbar from "./js/components/Navbar";
+import HomePage from "./js/pages/HomePage";
+import CustomersPage from "./js/pages/CustomersPage";
+// import CustomerPageWithPaginate from "./js/pages/CustomerPageWithPaginate";
+import { HashRouter, Switch, Route } from "react-router-dom";
 
 
 /*
@@ -18,11 +23,20 @@ import './styles/app.css';
 import './bootstrap';
 
 const App = () => {
-    return <h1>Bonjour !</h1>  
+    return <HashRouter>
+        <Navbar />
+
+        <main className="container pt-4">
+            <Switch>
+                <Route path="/customers" component={CustomersPage}></Route> 
+                {/* <Route path="/customers" component={CustomerPageWithPaginate}></Route>  */}
+                <Route path="/" component={HomePage}></Route> 
+            </Switch>
+        </main>
+    </HashRouter>  
 };
 
 const rootElement  = document.querySelector('#app');
 ReactDOM.render(<App />, rootElement);
 
-console.log('PUPU')
 
