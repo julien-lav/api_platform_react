@@ -27,7 +27,7 @@ const CustomerPageWithPaginate = props => {
         setCustomers(customers.filter(customer => customer.id !== id));
         const originalCustomers = [...customers];
         axios
-            .delete("http://://localhost:8000/api/customers" + id) 
+            .delete("http://localhost:8000/api/customers" + id) 
             .then(response => console.log(response))
             .catch(error => {
                 setCustomers(originalCustomers);

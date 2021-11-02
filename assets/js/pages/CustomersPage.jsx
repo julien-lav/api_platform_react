@@ -1,26 +1,12 @@
-import React, {useEffect, useState} from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Pagination from "../components/Pagination";
+import CustomersAPI from "../services/customersAPI";
 
 const CustomersPage = props => {
 
     const [customers, setCustomers ] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
-
-
-    const handleDelete = id  => {        
-        setCustomers(customers.filter(customer => customer.id !== id));
-        const originalCustomers = [...customers];
-        axios
-            .delete("http://://localhost:8000/api/customers" + id) 
-            .then(response => console.log(response))
-            .catch(error => {
-                setCustomers(originalCustomers);
-                console.log(error.response)
-            });
-    };
-    
 
     const handleSearch = (event) => {
         const value = event.currentTarget.value;
@@ -43,13 +29,37 @@ const CustomersPage = props => {
     const itemsPerPage = 10;
     const paginatedCustomers = Pagination.getData(filteredCustomers, currentPage, itemsPerPage);
     
-    
-    useEffect(() => {
-        axios
-            .get("http://localhost:8000/api/customers")
-            .then(response => response.data["hydra:member"])
-            .then(data => setCustomers(data))
-            .catch(error => console.log(error.response));
+    const handleDelete = async id  => {        
+        const originalCustomers = [...customers];
+        setCustomers(customers.filter(customer => customer.id !== id));
+       
+        try {
+            await CustomersAPI.delete(id)
+        } catch(error) {
+            setCustomers(originalCustomers);
+        }
+        // CustomersAPI.delete(id)
+        //     .then(response => console.log(response))
+        //     .catch(error => {
+        //         setCustomers(originalCustomers);
+        //         console.log(error.response)
+        //     });
+    };
+
+    const fetchCustomers = async () => {
+        try {
+            const data = await CustomersAPI.findAll()
+            setCustomers(data)
+        } catch(error) {
+            console.log(error.response)
+        }
+    }
+
+    useEffect(() => {     
+        fetchCustomers();
+        // CustomersAPI.findAll()
+        //     .then(data => setCustomers(data))
+        //     .catch(error => console.log(error.response));
     }, []);
 
     return <>
