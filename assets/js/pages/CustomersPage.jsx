@@ -13,7 +13,7 @@ const CustomersPage = props => {
         setSearch(value);
         setCurrentPage(1);
     };
-
+ 
     const filteredCustomers = customers.filter(
         c => 
             c.firstname.toLowerCase().includes(search.toLowerCase()) ||

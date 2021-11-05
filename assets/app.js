@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 import Navbar from "./js/components/Navbar";
 import HomePage from "./js/pages/HomePage";
 import CustomersPage from "./js/pages/CustomersPage";
+import InvoicesPage from "./js/pages/InvoicesPage";
 // import CustomerPageWithPaginate from "./js/pages/CustomerPageWithPaginate";
 import { HashRouter, Switch, Route } from "react-router-dom";
 
@@ -28,7 +29,8 @@ const App = () => {
 
         <main className="container pt-4">
             <Switch>
-                <Route path="/customers" component={CustomersPage}></Route> 
+            <Route path="/customers" component={CustomersPage}></Route> 
+                <Route path="/invoices" component={InvoicesPage}></Route> 
                 {/* <Route path="/customers" component={CustomerPageWithPaginate}></Route>  */}
                 <Route path="/" component={HomePage}></Route> 
             </Switch>
